@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import '../../Constants/globals.dart';
 import '../../Constants/remote_server_urls.dart';
+import '../../widgets/bottombar.dart';
 import '../dashboard.dart';
 import '../splash2.dart';
 import 'forgotpass.dart';
@@ -68,11 +69,12 @@ class _SigninscreenState extends State<Signinscreen> {
           final customerData = data['customerdata'];
 
           Globals.token = customerData['token'];
+          Globals.id = customerData['id'];
 
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const Dashboard(),
+              builder: (context) => const BottomNavigation(),
             ),
           );
         } else {
